@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Sentiment Analysis</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      .login {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+      .login h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .login form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .mb-3 {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .form-label {
+        font-size: 18px;
+        margin-bottom: 5px;
+        text-align: left;
+      }
+      .form-control {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      .form-control:focus {
+        border-color: #3498db;
+        outline: none;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #3498db;
+        color: #fff;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #2980b9;
+      }
+      h2 {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login">
+      <h1>Text Sentiment Analysis</h1>
+      <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <div class="mb-3">
+          <label class="form-label">Text</label>
+          <input
+            class="form-control"
+            name="text"
+            placeholder="Enter your Text here"
+            required
+          />
+        </div>
+        <button type="submit" class="btn">Analyze</button>
+      </form>
+      <h2>The prediction is {{results}}</h2>
+    </div>
+  </body>
+</html>
